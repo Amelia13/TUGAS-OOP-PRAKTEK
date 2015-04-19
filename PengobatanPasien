@@ -1,0 +1,395 @@
+public class PengobatanPasien {
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        Dokter dokterA = new Dokter();
+        Pasien pasienA = new Pasien();
+        Penyakit penyakitA = new Penyakit();
+        Resep resepA = new Resep();
+        Obat obatA = new Obat();
+        Obat obatB = new Obat();
+        Obat obatC = new Obat();
+        Biaya biayaA = new Biaya();
+       
+    
+        dokterA.setNamaDokter("dr. Lilik Karsono, Sp.KK" );
+        dokterA.setNoPraktekDokter("143-3-GER-Pwt");
+        dokterA.setSpesialis("Spesialis Kulit dan Kelamin");
+        
+        pasienA.setNamaPasein("Dia");
+        pasienA.setAlamatPasien("Jl. Sidodadi Raya No.10 Wonosobo");
+       
+        penyakitA.setDiagnosaPenyakit("Virtiligo");
+        penyakitA.setPenanganan("Cek kondisi kulit");
+        
+        obatA.setJenisObat("OXAN");
+        obatA.setDosisObat("1 tablet");
+        obatA.setAturanPemakaian("1 kali sehari SETELAH makan");
+        
+        obatB.setJenisObat("Fuson");
+        obatB.setDosisObat("Secukupnya");
+        obatB.setAturanPemakaian("1 kali sehari SIANG");
+        
+        obatC.setJenisObat("Vitiskin");
+        obatC.setDosisObat("Oleskan pada yang terinfeksi");
+        obatC.setAturanPemakaian("2 kali sehari PAGI MALAM ");
+        
+        biayaA.setBiayaPeriksa(100000);
+        biayaA.setBiayaObat(7600000);
+        biayaA.setTotal(biayaA.getBiayaObat(), biayaA.getBiayaPeriksa());
+        
+        resepA.setDokterA(dokterA);
+        resepA.setPasienA(pasienA);
+        resepA.setPenyakitA(penyakitA);
+        resepA.setObatA(obatA);
+        resepA.setObatB(obatB);
+        resepA.setObatC(obatC);
+        resepA.setBiayaA(biayaA);
+        
+        cetak(resepA);
+        
+    }
+ 
+   static void cetak(Resep resepA){
+        System.out.println("Nama dokter : "+resepA.getDokterA().getNamaDokter());
+        System.out.println("No ijin prakterk : "+resepA.getDokterA().getNoPraktekDokter());
+        System.out.println(resepA.getDokterA().getSpesialis());
+        System.out.println();
+        System.out.println("Nama Pasien : "+resepA.getPasienA().getNamaPasein());
+        System.out.println("Alamat : "+resepA.getPasienA().getAlamatPasien());
+        System.out.println("Diagnosa : "+resepA.getPenyakitA().getDiagnosaPenyakit());
+        System.out.println("Penanganan : "+resepA.getPenyakitA().getPenanganan());
+        System.out.println();
+        System.out.println("Obat :");
+        System.out.println(resepA.getObatA().getJenisObat()+","+resepA.getObatA().getDosisObat()
+                +","+resepA.getObatA().getAturanPemakaian());
+         System.out.println(resepA.getObatB().getJenisObat()+","+resepA.getObatB().getDosisObat()
+                +","+resepA.getObatB().getAturanPemakaian());
+          System.out.println(resepA.getObatC().getJenisObat()+","+resepA.getObatC().getDosisObat()
+                +","+resepA.getObatC().getAturanPemakaian());
+           System.out.println();
+          System.out.println("Total Biaya : Rp."+resepA.getBiayaA().getTotal());
+                  
+        
+    }
+    
+}
+public class Biaya {
+    private int biayaPeriksa;
+    private int biayaObat;
+    private int total;
+
+    /**
+     * @return the biayaPeriksa
+     */
+    public int getBiayaPeriksa() {
+        return biayaPeriksa;
+    }
+
+    /**
+     * @param biayaPeriksa the biayaPeriksa to set
+     */
+    public void setBiayaPeriksa(int biayaPeriksa) {
+        this.biayaPeriksa = biayaPeriksa;
+    }
+
+    /**
+     * @return the biayaObat
+     */
+    public int getBiayaObat() {
+        return biayaObat;
+    }
+
+    /**
+     * @param biayaObat the biayaObat to set
+     */
+    public void setBiayaObat(int biayaObat) {
+        this.biayaObat = biayaObat;
+    }
+
+    /**
+     * @return the total
+     */
+    public int getTotal() {
+        return total;
+    }
+
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(int A,int B) {
+        total = A+B;
+    }
+
+}
+public class Dokter {
+
+    private String namaDokter;
+    private String noPraktekDokter;
+    private String Spesialis;
+
+    /**
+     * @return the namaDokter
+     */
+    public String getNamaDokter() {
+        return namaDokter;
+    }
+
+    /**
+     * @param namaDokter the namaDokter to set
+     */
+    public void setNamaDokter(String namaDokter) {
+        this.namaDokter = namaDokter;
+    }
+
+    /**
+     * @return the noPraktekDokter
+     */
+    public String getNoPraktekDokter() {
+        return noPraktekDokter;
+    }
+
+    /**
+     * @param noPraktekDokter the noPraktekDokter to set
+     */
+    public void setNoPraktekDokter(String noPraktekDokter) {
+        this.noPraktekDokter = noPraktekDokter;
+    }
+
+    /**
+     * @return the Spesialis
+     */
+    public String getSpesialis() {
+        return Spesialis;
+    }
+
+    /**
+     * @param Spesialis the Spesialis to set
+     */
+    public void setSpesialis(String Spesialis) {
+        this.Spesialis = Spesialis;
+    }
+
+}
+public class Obat {
+    private String jenisObat;
+    private String dosisObat;
+    private String aturanPemakaian;
+
+    /**
+     * @return the jenisObat
+     */
+    public String getJenisObat() {
+        return jenisObat;
+    }
+
+    /**
+     * @param jenisObat the jenisObat to set
+     */
+    public void setJenisObat(String jenisObat) {
+        this.jenisObat = jenisObat;
+    }
+
+    /**
+     * @return the dosisObat
+     */
+    public String getDosisObat() {
+        return dosisObat;
+    }
+
+    /**
+     * @param dosisObat the dosisObat to set
+     */
+    public void setDosisObat(String dosisObat) {
+        this.dosisObat = dosisObat;
+    }
+
+    /**
+     * @return the aturanPemakaian
+     */
+    public String getAturanPemakaian() {
+        return aturanPemakaian;
+    }
+
+    /**
+     * @param aturanPemakaian the aturanPemakaian to set
+     */
+    public void setAturanPemakaian(String aturanPemakaian) {
+        this.aturanPemakaian = aturanPemakaian;
+    }
+    
+}
+public class Pasien {
+    private String namaPasein;
+    private String alamatPasien;
+
+    /**
+     * @return the namaPasein
+     */
+    public String getNamaPasein() {
+        return namaPasein;
+    }
+
+    /**
+     * @param namaPasein the namaPasein to set
+     */
+    public void setNamaPasein(String namaPasein) {
+        this.namaPasein = namaPasein;
+    }
+
+    /**
+     * @return the alamatPasien
+     */
+    public String getAlamatPasien() {
+        return alamatPasien;
+    }
+
+    /**
+     * @param alamatPasien the alamatPasien to set
+     */
+    public void setAlamatPasien(String alamatPasien) {
+        this.alamatPasien = alamatPasien;
+    }
+   
+    
+}
+public class Penyakit {
+    private String diagnosaPenyakit;
+    private String penanganan;
+
+    /**
+     * @return the diagnosaPenyakit
+     */
+    public String getDiagnosaPenyakit() {
+        return diagnosaPenyakit;
+    }
+
+    /**
+     * @param diagnosaPenyakit the diagnosaPenyakit to set
+     */
+    public void setDiagnosaPenyakit(String diagnosaPenyakit) {
+        this.diagnosaPenyakit = diagnosaPenyakit;
+    }
+
+    /**
+     * @return the penanganan
+     */
+    public String getPenanganan() {
+        return penanganan;
+    }
+
+    /**
+     * @param penanganan the penanganan to set
+     */
+    public void setPenanganan(String penanganan) {
+        this.penanganan = penanganan;
+    }
+
+}
+public class Resep {
+    private Dokter dokterA;
+    private Pasien pasienA;
+    private Penyakit penyakitA;
+    private Obat obatA;
+    private Obat obatB;
+    private Obat obatC; 
+    private Biaya biayaA;
+
+    /**
+     * @return the dokterA
+     */
+    public Dokter getDokterA() {
+        return dokterA;
+    }
+
+    /**
+     * @param dokterA the dokterA to set
+     */
+    public void setDokterA(Dokter dokterA) {
+        this.dokterA = dokterA;
+    }
+
+    /**
+     * @return the pasienA
+     */
+    public Pasien getPasienA() {
+        return pasienA;
+    }
+
+    /**
+     * @param pasienA the pasienA to set
+     */
+    public void setPasienA(Pasien pasienA) {
+        this.pasienA = pasienA;
+    }
+
+    /**
+     * @return the penyakitA
+     */
+    public Penyakit getPenyakitA() {
+        return penyakitA;
+    }
+
+    /**
+     * @param penyakitA the penyakitA to set
+     */
+    public void setPenyakitA(Penyakit penyakitA) {
+        this.penyakitA = penyakitA;
+    }
+
+    /**
+     * @return the obatA
+     */
+    public Obat getObatA() {
+        return obatA;
+    }
+
+    /**
+     * @param obatA the obatA to set
+     */
+    public void setObatA(Obat obatA) {
+        this.obatA = obatA;
+    }
+
+    /**
+     * @return the obatB
+     */
+    public Obat getObatB() {
+        return obatB;
+    }
+
+    /**
+     * @param obatB the obatB to set
+     */
+    public void setObatB(Obat obatB) {
+        this.obatB = obatB;
+    }
+
+    /**
+     * @return the obatC
+     */
+    public Obat getObatC() {
+        return obatC;
+    }
+
+    /**
+     * @param obatC the obatC to set
+     */
+    public void setObatC(Obat obatC) {
+        this.obatC = obatC;
+    }
+
+    /**
+     * @return the biayaA
+     */
+    public Biaya getBiayaA() {
+        return biayaA;
+    }
+
+    /**
+     * @param biayaA the biayaA to set
+     */
+    public void setBiayaA(Biaya biayaA) {
+        this.biayaA = biayaA;
+    }
+}
